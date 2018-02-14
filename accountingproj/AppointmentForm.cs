@@ -49,6 +49,19 @@ namespace accountingproj
             loadAll();
             loadPatients();
 
+            string sel = "SELECT * FROM treat";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(sel, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            comm.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            conn.Close();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cmbTreat.Items.Add(dt.Rows[i][1].ToString());
+            }
+           
 
             metroTabControl1.SelectedTab = metroTabPage1;
         }
@@ -220,6 +233,16 @@ namespace accountingproj
                 {
                     MessageBox.Show("The clinic is only open from 8 AM to 6 PM", "TIME!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                
+                
+            }
+            for (int i = 0; i < dataGridView3.Rows.Count; i++)
+            {
+                string qquery = "Insert into treatment_line VALUES (NULL, '" + id + "')";
+                conn.Open();
+                MySqlCommand commqq = new MySqlCommand(qquery, conn);
+                commqq.ExecuteNonQuery();
+                conn.Close();
             }
         }
 
@@ -536,6 +559,17 @@ namespace accountingproj
 
         private void button7_Click(object sender, EventArgs e)
         {
+            string sel = "SELECT treat_id FROM treat WHERE description = '"+cmbTreat.Text+"'";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(sel, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            comm.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            conn.Close();
+            string id = dt.Rows[0][0].ToString();
+            dataGridView3.Rows.Add(id, cmbTreat.Text);
+            /*
             if (comboBox1.Text == "Others" && textBox4.Text == "")
             {
                 MessageBox.Show("Please specify treatment to be done.", "Treatment Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -571,6 +605,7 @@ namespace accountingproj
                 }
 
             }
+            */
         }
 
         private void button8_Click(object sender, EventArgs e)

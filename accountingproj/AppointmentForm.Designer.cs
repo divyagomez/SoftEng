@@ -138,6 +138,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.cmbTreat = new System.Windows.Forms.ComboBox();
+            this.treatId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -647,7 +650,7 @@
             this.metroDateTime2.CustomFormat = "yyyy-MM-dd";
             this.metroDateTime2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.metroDateTime2.Location = new System.Drawing.Point(117, 152);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime2.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime2.Name = "metroDateTime2";
             this.metroDateTime2.Size = new System.Drawing.Size(217, 29);
             this.metroDateTime2.TabIndex = 40;
@@ -1299,6 +1302,7 @@
             this.panel5.Controls.Add(this.button14);
             this.panel5.Controls.Add(this.button8);
             this.panel5.Controls.Add(this.button7);
+            this.panel5.Controls.Add(this.cmbTreat);
             this.panel5.Controls.Add(this.comboBox1);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(6, 100);
@@ -1332,6 +1336,9 @@
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.treatId,
+            this.desc});
             this.dataGridView3.Location = new System.Drawing.Point(17, 21);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
@@ -1353,7 +1360,7 @@
             // 
             this.panel6.Controls.Add(this.textBox4);
             this.panel6.Controls.Add(this.label11);
-            this.panel6.Location = new System.Drawing.Point(24, 100);
+            this.panel6.Location = new System.Drawing.Point(24, 141);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(186, 68);
             this.panel6.TabIndex = 29;
@@ -1436,7 +1443,7 @@
             "Others",
             "X-Ray",
             "Veneers"});
-            this.comboBox1.Location = new System.Drawing.Point(24, 54);
+            this.comboBox1.Location = new System.Drawing.Point(24, 87);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(140, 27);
             this.comboBox1.TabIndex = 2;
@@ -1784,6 +1791,26 @@
             this.textBox5.TabIndex = 77;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
+            // cmbTreat
+            // 
+            this.cmbTreat.FormattingEnabled = true;
+            this.cmbTreat.Location = new System.Drawing.Point(24, 54);
+            this.cmbTreat.Name = "cmbTreat";
+            this.cmbTreat.Size = new System.Drawing.Size(140, 27);
+            this.cmbTreat.TabIndex = 2;
+            // 
+            // treatId
+            // 
+            this.treatId.HeaderText = "id";
+            this.treatId.Name = "treatId";
+            this.treatId.ReadOnly = true;
+            // 
+            // desc
+            // 
+            this.desc.HeaderText = "Description";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
             // AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1947,5 +1974,8 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox5;
         private MetroFramework.Controls.MetroDateTime metroDateTime2;
+        private System.Windows.Forms.ComboBox cmbTreat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn treatId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desc;
     }
 }
